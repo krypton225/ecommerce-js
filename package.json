@@ -1,0 +1,20 @@
+{
+  "name": "ecommerce",
+  "author": "Khaled Mohamed",
+  "version": "1.0.0",
+  "description": "This is just a ecommerce application with native JavaScript & Tailwind CSS",
+  "main": "index.js",
+  "scripts": {
+    "tw-watch": "npx tailwindcss -i ./css/input.css -o ./dist/output.css --watch"
+  },
+  "keywords": [
+    "HTML5",
+    "CSS3",
+    "Tailwind CSS",
+    "JavaScript"
+  ],
+  "license": "MIT",
+  "devDependencies": {
+    "tailwindcss": "^3.2.4"
+  }
+}
