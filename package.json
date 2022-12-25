@@ -5,6 +5,8 @@
   "description": "This is just a ecommerce application with native JavaScript & Tailwind CSS",
   "main": "index.js",
   "scripts": {
+    "start": "live-server & npx tailwindcss -i ./css/input.css -o ./dist/output.css --watch",
+    "server": "live-server",
     "tw-watch": "npx tailwindcss -i ./css/input.css -o ./dist/output.css --watch"
   },
   "keywords": [
