@@ -3,7 +3,9 @@ module.exports = {
   content: ["./**/*.{html,js}"],
   theme: {
     container: {
-      center: true
+      center: true,
+      paddingLeft: "2rem",
+      paddingRight: "2rem",
     },
     extend: {
       colors: {
