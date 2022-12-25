@@ -2,7 +2,14 @@
 module.exports = {
   content: ["./**/*.{html,js}"],
   theme: {
-    extend: {},
+    container: {
+      center: true
+    },
+    extend: {
+      colors: {
+        "slate-850": "#19212e"
+      }
+    },
   },
   plugins: [],
 }
