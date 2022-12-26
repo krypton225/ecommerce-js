@@ -1,3 +1,17 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+@layer components {
+  .btn-custom {
+    @apply w-[46%] mt-6 py-1 rounded-md bg-slate-700 capitalize cursor-pointer text-sm md:text-base transition-all duration-[0.8s] hover:bg-slate-800;
+  }
+
+  .product-card-home {
+    @apply w-[80%] mx-auto py-4 px-1 rounded-xl bg-gradient-to-bl from-slate-750 via-slate-850 to-gray-900 shadow-sm text-white text-center;
+  }
+}
+
+.section-padding {
+  padding-block: 10rem;
+}

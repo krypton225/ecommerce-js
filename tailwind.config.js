@@ -9,7 +9,8 @@ module.exports = {
     },
     extend: {
       colors: {
-        "slate-850": "#19212e"
+        "slate-750": "#111721",
+        "slate-850": "#19212e",
       }
     },
   },
