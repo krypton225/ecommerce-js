@@ -3,13 +3,15 @@ const renderProducts = (function () {
         try {
             const myELement = document.getElementById(parentElementID);
 
-            sourceOfProducts.forEach(({ id, pathPic, picAltText, productDescription }) => {
+            sourceOfProducts.forEach(({ id, pathPic, picAltText, productPrice, productDescription }) => {
                 myELement.innerHTML +=
-                    `<div id="product-${id}" class="product-card-home">
+                    `<div id="product-${id}" class="product-card-home relative">
 
-                        <img src="${pathPic}" class="w-[60%] mx-auto object-cover" alt="${picAltText}">
+                        <span class="rounded-bl-lg py-1 px-5 absolute top-0 right-0 bg-slate-600 text-white z-50">$${productPrice}</span>
 
-                        <h3 class="mt-3">${picAltText}</h3>
+                        <img src="${pathPic}" class="w-[60%] mx-auto object-cover" alt="${picAltText}" width="60%" height="60%" loading="lazy">
+
+                        <h2 class="mt-3">${picAltText}</h2>
 
                         <p class="text-sm text-gray-500">${productDescription}</p>
 
