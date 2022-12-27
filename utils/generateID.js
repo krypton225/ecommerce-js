@@ -7,12 +7,20 @@ const generateID = (function () {
         }
     }
 
-    function insertIDIntoData(dataArr = []) {
-        const counter = MainCountingIDGenerator();
+    function isArrayNotEmpty(sourceArr = []) {
+        return sourceArr.length !== 0
+    }
 
-        dataArr.forEach((arr) => {
-            arr.id = counter.next().value;
-        });
+    function insertIDIntoData(dataArr = []) {
+        if (isArrayNotEmpty(dataArr)) {
+            const counter = MainCountingIDGenerator();
+
+            dataArr.forEach((arr) => {
+                arr.id = counter.next().value;
+            });
+        } else {
+            throw new Error("Array must not be empty of objects.");
+        }
     }
 
     return {
