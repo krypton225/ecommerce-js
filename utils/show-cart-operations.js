@@ -1,18 +1,21 @@
 const cartOperations = (function () {
     const mainElement = document.getElementById("show-cart");
 
-    function openShowCart(cartIconToOpen = null) {
-        document.getElementById(cartIconToOpen).addEventListener(("click"), () => {
-            mainElement.classList.remove("-right-[27rem]");
-            mainElement.classList.add("right-0");
-        });
+    /**
+     * * Check if param is true, then open cart, else close it.
+     * @param  {} open=true
+     */
+    function showOrNot(open = true) {
+        mainElement.classList.add(open ? "right-0" : "-right-[27rem]");
+        mainElement.classList.remove(open ? "-right-[27rem]" : "right-0");
     }
 
-    function closeShowCart(cartCloseIcon = null) {
-        document.getElementById(cartCloseIcon).addEventListener(("click"), () => {
-            mainElement.classList.add("-right-[27rem]");
-            mainElement.classList.remove("right-0");
-        });
+    function openShowCart(cartIconToOpen = null ?? "") {
+        document.getElementById(cartIconToOpen).addEventListener(("click"), () => showOrNot(true));
+    }
+
+    function closeShowCart(cartCloseIcon = null ?? "") {
+        document.getElementById(cartCloseIcon).addEventListener(("click"), () => showOrNot(false));
     }
 
     return {
