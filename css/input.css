@@ -12,6 +12,24 @@
   }
 }
 
+body::-webkit-scrollbar {
+  width: 0;
+  border-radius: 4.5rem;
+  background-color: transparent !important;
+}
+
+body::-webkit-scrollbar-track {
+  background-color: transparent !important;
+}
+
+body::-webkit-scrollbar-thumb {
+  background-color: #111827;
+}
+
+body::-webkit-scrollbar-track-piece {
+  display: none;
+}
+
 .section-padding {
   padding-block: 10rem;
 }
