@@ -1,6 +1,7 @@
 import AllProducts from "../data/products.js";
 
 const Modal = (function () {
+    const myModal = document.getElementById("my-modal");
 
     function getAllButtonsProducts() {
         return document.querySelectorAll(`.product-card-home .show`);
@@ -26,9 +27,7 @@ const Modal = (function () {
 
     const setModalBody = function (product) {
         const { id, pathPic, picAltText, productPrice, productFullDescription } = product;
-        console.log(pathPic, picAltText, productPrice);
 
-        const myModal = document.getElementById("my-modal");
         myModal.innerHTML = `
                 <div id="product-modal-${id}" class="product-card-modal relative">
                     <div class="close-modal w-7 h-7 p-1 rounded-full absolute -top-11 right-1 flex justify-center items-center 
@@ -54,10 +53,20 @@ const Modal = (function () {
 
         myModal.classList.remove("top-[26rem]", "opacity-0", "invisible");
         myModal.classList.add("top-[28rem]", "opacity-1", "visible");
+
+        closeModal();
+    }
+
+    function closeModal() {
+        document.querySelector(".close-modal").addEventListener(("click"), () => {
+            myModal.classList.remove("top-[28rem]", "opacity-1", "visible");
+            myModal.classList.add("top-[26rem]", "opacity-0", "invisible");
+        });
     }
 
     return {
-        getButtonClicked
+        getButtonClicked,
+        closeModal
     }
 })();
 
