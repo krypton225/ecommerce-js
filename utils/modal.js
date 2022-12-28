@@ -10,6 +10,7 @@ const Modal = (function () {
     function getButtonClicked() {
         getAllButtonsProducts().forEach((product) => {
             product.addEventListener(("click"), (e) => {
+                document.body.classList.add("overflow-y-hidden");
                 getProductContainerID(e.currentTarget);
             });
         });
@@ -61,6 +62,7 @@ const Modal = (function () {
         document.querySelector(".close-modal").addEventListener(("click"), () => {
             myModal.classList.remove("top-[28rem]", "opacity-1", "visible");
             myModal.classList.add("top-[26rem]", "opacity-0", "invisible");
+            document.body.classList.remove("overflow-y-hidden");
         });
     }
 
