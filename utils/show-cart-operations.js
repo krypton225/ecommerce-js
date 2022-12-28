@@ -6,8 +6,8 @@ const cartOperations = (function () {
      * @param  {} open=true
      */
     function showOrNot(open = true) {
-        mainElement.classList.add(open ? "right-0" : "-right-[27rem]");
-        mainElement.classList.remove(open ? "-right-[27rem]" : "right-0");
+        mainElement.classList.add(open ? "right-0" : "-right-[50rem]");
+        mainElement.classList.remove(open ? "-right-[50rem]" : "right-0");
     }
 
     function openShowCart(cartIconToOpen = null ?? "") {

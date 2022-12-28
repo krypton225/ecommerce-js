@@ -10,6 +10,10 @@
   .product-card-home {
     @apply w-[80%] md:w-[94%] mx-auto py-4 px-1 rounded-xl bg-gradient-to-bl from-slate-750 via-slate-850 to-gray-900 shadow-sm text-white text-center;
   }
+
+  .product-card-modal {
+    @apply mx-auto py-2 px-1 rounded-xl text-white text-start lg:text-center;
+  }
 }
 
 body::-webkit-scrollbar {

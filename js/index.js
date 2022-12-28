@@ -4,7 +4,11 @@ import renderProducts from "../data/renderProducts.js";
 
 import CartOperations from "../utils/show-cart-operations.js";
 
+import Modal from "../utils/modal.js";
+
 renderProducts("parent-products", AllProducts);
 
 CartOperations.open("show-cart-open");
 CartOperations.close("show-cart-close");
+
+Modal.getButtonClicked();
