@@ -4,11 +4,18 @@
 
 @layer components {
   .btn-custom {
-    @apply w-[46%] mt-6 py-1 rounded-md bg-slate-700 capitalize cursor-pointer text-sm md:text-base transition-all duration-[0.8s] hover:bg-slate-800;
+    @apply w-[46%] mt-6 py-1 rounded-md bg-slate-700 capitalize cursor-pointer text-sm md:text-base 
+    transition-all duration-[0.8s] hover:bg-slate-800;
+  }
+
+  .btn-custom-2 {
+    @apply w-[45%] py-[0.22rem] mt-0 rounded-md bg-slate-700 capitalize cursor-pointer text-xl 
+    font-semibold transition-all duration-[0.8s] hover:bg-slate-800;
   }
 
   .product-card-home {
-    @apply w-[80%] md:w-[94%] mx-auto py-4 px-1 rounded-xl bg-gradient-to-bl from-slate-750 via-slate-850 to-gray-900 shadow-sm text-white text-center;
+    @apply w-[80%] md:w-[94%] mx-auto py-4 px-1 rounded-xl 
+    bg-gradient-to-bl from-slate-750 via-slate-850 to-gray-900 shadow-sm text-white text-center;
   }
 
   .product-card-modal {
