@@ -960,6 +960,10 @@ video {
   height: 2.25rem;
 }
 
+.h-8 {
+  height: 2rem;
+}
+
 .w-\[25rem\] {
   width: 25rem;
 }
@@ -998,6 +1002,10 @@ video {
 
 .w-9 {
   width: 2.25rem;
+}
+
+.w-8 {
+  width: 2rem;
 }
 
 .flex-shrink {
@@ -1517,6 +1525,10 @@ video {
 
 .gap-8 {
   gap: 2rem;
+}
+
+.gap-y-6 {
+  row-gap: 1.5rem;
 }
 
 .space-x-2 > :not([hidden]) ~ :not([hidden]) {
@@ -2125,6 +2137,11 @@ video {
   padding-right: 0.25rem;
 }
 
+.py-24 {
+  padding-top: 6rem;
+  padding-bottom: 6rem;
+}
+
 .text-left {
   text-align: left;
 }
@@ -2207,6 +2224,11 @@ video {
 
 .text-\[1rem\] {
   font-size: 1rem;
+}
+
+.text-xl {
+  font-size: 1.25rem;
+  line-height: 1.75rem;
 }
 
 .font-bold {
@@ -2773,6 +2795,11 @@ body::-webkit-scrollbar-track-piece,
 
   .lg\:grid-cols-3 {
     grid-template-columns: repeat(3, minmax(0, 1fr));
+  }
+
+  .lg\:py-24 {
+    padding-top: 6rem;
+    padding-bottom: 6rem;
   }
 
   .lg\:text-lg {
