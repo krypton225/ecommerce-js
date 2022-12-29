@@ -1,3 +1,5 @@
+import Scroll from "./removeScrolling.js";
+
 const cartOperations = (function () {
     const mainElement = document.getElementById("show-cart");
 
@@ -15,7 +17,11 @@ const cartOperations = (function () {
      * @param  {} cartIconToOpen=null??"" - element ID to open cart.
      */
     function openShowCart(cartIconToOpen = null ?? "") {
-        document.getElementById(cartIconToOpen).addEventListener(("click"), () => showOrNot(true));
+        document.getElementById(cartIconToOpen).addEventListener(("click"), () => {
+            showOrNot(true);
+            Scroll.removeTwoAxis("body");
+            Scroll.addYAxisTo("show-cart");
+        });
     }
 
     /**
@@ -23,7 +29,11 @@ const cartOperations = (function () {
      * @param  {} cartCloseIcon=null??"" - element ID to close cart.
      */
     function closeShowCart(cartCloseIcon = null ?? "") {
-        document.getElementById(cartCloseIcon).addEventListener(("click"), () => showOrNot(false));
+        document.getElementById(cartCloseIcon).addEventListener(("click"), () => {
+            showOrNot(false);
+            Scroll.addTwoAxis("body");
+            Scroll.removeYAxisFrom("show-cart");
+        });
     }
 
     return {
