@@ -1,4 +1,8 @@
 const renderProducts = (function () {
+    /**
+     * @param  {HTMLElement} parentElementID=null - get the element ID which acts as container for all products.
+     * @param  {Array} sourceOfProducts=[] - get all products which will be rendered into @param parentElementID.
+     */
     function setProductsInfo(parentElementID = null, sourceOfProducts = []) {
         try {
             const myELement = document.getElementById(parentElementID);
