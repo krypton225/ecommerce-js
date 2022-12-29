@@ -1,19 +1,28 @@
 const generateID = (function () {
-    function* MainCountingIDGenerator(start = 1) {
-        let count = start;
+    /**
+     * @returns {number}
+    */
+    function* countingIDGenerator() {
+        let count = 1;
 
         while (true) {
             yield count++;
         }
     }
 
+    /**
+     * @param  {Array} sourceArr=[] - array to check if it has objects or not.
+    */
     function isArrayNotEmpty(sourceArr = []) {
-        return sourceArr.length !== 0
+        return sourceArr.length !== 0;
     }
 
+    /**
+     * @param  {Array} dataArr=[] - array has objects and insert IDs into each one.
+    */
     function insertIDIntoData(dataArr = []) {
         if (isArrayNotEmpty(dataArr)) {
-            const counter = MainCountingIDGenerator();
+            const counter = countingIDGenerator();
 
             dataArr.forEach((arr) => {
                 arr.id = counter.next().value;

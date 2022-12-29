@@ -22,7 +22,7 @@ const renderProducts = (function () {
                             <button class="btn-custom show" id="show-product-${id}">show</button>
                         </div>
                     </div>`;
-            })
+            });
         } catch (error) {
             console.error(error);
         }
