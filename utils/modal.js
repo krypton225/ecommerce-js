@@ -3,10 +3,18 @@ import AllProducts from "../data/products.js";
 const Modal = (function () {
     const myModal = document.getElementById("my-modal");
 
+    /**
+     * @description get all buttons Show which into product cards.
+     * @returns {NodeList} - returns list of nodes of buttons.
+    */
     function getAllButtonsProducts() {
         return document.querySelectorAll(`.product-card-home .show`);
     }
 
+    /**
+     * @description iterate through each button to determine which one is clicked.
+     * And call method getProductContainerID to send the clicked button.
+    */
     function getButtonClicked() {
         getAllButtonsProducts().forEach((product) => {
             product.addEventListener(("click"), (e) => {
@@ -16,16 +24,28 @@ const Modal = (function () {
         });
     }
 
+    /**
+     * @description get product ID which regards to the clicked button and send to setModalBody function.
+     * @param  {HTMLElement} buttonClicked= undefined ?? "" - get the button which is actually clicked.
+     */
     function getProductContainerID(buttonClicked = undefined ?? "") {
         const parentELementID = buttonClicked.parentNode.parentNode.id.split("-")[1];
         const productObject = getProductObject(parseInt(parentELementID));
         setModalBody(productObject[0]);
     }
 
+    /**
+     * @description filter the product array to get the product with specified product ID.
+     * @param  {number} productID=0 - product ID which will be filtered and get from the main product array.
+     */
     function getProductObject(productID = 0) {
         return AllProducts.filter((product) => productID === product.id);
     }
 
+    /**
+     * @description set the info which is got from the filter into the Modal.
+     * @param  {Object} product - whole object which we will get from it the info about product chosen.
+     */
     const setModalBody = function (product) {
         const { id, pathPic, picAltText, productPrice, productFullDescription } = product;
 
@@ -58,6 +78,9 @@ const Modal = (function () {
         closeModal();
     }
 
+    /**
+     * @description toggle between classes to close the modal.
+     */
     function closeModal() {
         document.querySelector(".close-modal").addEventListener(("click"), () => {
             myModal.classList.remove("top-[28rem]", "opacity-1", "visible");
