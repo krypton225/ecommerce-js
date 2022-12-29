@@ -2,7 +2,7 @@ const cartOperations = (function () {
     const mainElement = document.getElementById("show-cart");
 
     /**
-     * * Check if param is true, then open cart, else close it.
+     * @description Check if param is true, then open cart, else close it.
      * @param  {} open=true
      */
     function showOrNot(open = true) {
@@ -10,10 +10,18 @@ const cartOperations = (function () {
         mainElement.classList.remove(open ? "-right-[50rem]" : "right-0");
     }
 
+    /**
+     * @description to show the cart.
+     * @param  {} cartIconToOpen=null??"" - element ID to open cart.
+     */
     function openShowCart(cartIconToOpen = null ?? "") {
         document.getElementById(cartIconToOpen).addEventListener(("click"), () => showOrNot(true));
     }
 
+    /**
+     * @description to hide the cart.
+     * @param  {} cartCloseIcon=null??"" - element ID to close cart.
+     */
     function closeShowCart(cartCloseIcon = null ?? "") {
         document.getElementById(cartCloseIcon).addEventListener(("click"), () => showOrNot(false));
     }
