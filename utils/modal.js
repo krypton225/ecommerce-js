@@ -1,4 +1,6 @@
 import AllProducts from "../data/products.js";
+
+import ProductOperations from "./productOperations.js";
 import Scroll from "./removeScrolling.js";
 
 const Modal = (function () {
@@ -17,7 +19,7 @@ const Modal = (function () {
      * And call method getProductContainerID to send the clicked button.
     */
     function getButtonClicked() {
-        getAllButtonsProducts().forEach((product) => {
+        ProductOperations.getShowButtons().forEach((product) => {
             product.addEventListener(("click"), (e) => {
                 Scroll.removeTwoAxis("body");
                 getProductContainerID(e.currentTarget);
