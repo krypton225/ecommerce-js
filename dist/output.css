@@ -833,6 +833,11 @@ video {
   margin-bottom: 1rem;
 }
 
+.mx-\[10\%\] {
+  margin-left: 10%;
+  margin-right: 10%;
+}
+
 .ml-2 {
   margin-left: 0.5rem;
 }
