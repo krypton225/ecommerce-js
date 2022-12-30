@@ -51,12 +51,40 @@ const CartProduct = (function () {
                         Price: $${productPrice}
                     </span>
 
-                    <div class="w-full px-0 mt-5 flex justify-between items-center">
-                        <button class="btn-custom-2 decrease-item">-</button>
-                        <span class="inline-block mx-[10%] text-lg font-semibold product-counting">1</span>
-                        <button class="btn-custom-2 increase-item">+</button>
+                    <div class="w-full px-0 mt-5 flex justify-between items-center product-operations">
+                        <button class="btn-custom-2 decrease-cart-item">-</button>
+                        <span class="inline-block mx-[10%] text-xl font-semibold product-counting">1</span>
+                        <button class="btn-custom-2 increase-cart-item">+</button>
                     </div>
             </div>`;
+
+        increaseCounterOfProduct();
+        decreaseCounterOfProduct();
+    }
+
+    const increaseCounterOfProduct = function () {
+        document.querySelectorAll(".increase-cart-item").forEach((el) => {
+            el.addEventListener(("click"), (e) => {
+                const myPrevElement = e.currentTarget.previousElementSibling;
+                let counter = parseInt(myPrevElement.textContent).toString();
+                ++counter;
+                myPrevElement.innerHTML = counter.toString();
+            });
+        });
+    }
+
+    const decreaseCounterOfProduct = function () {
+        document.querySelectorAll(".decrease-cart-item").forEach((el) => {
+            el.addEventListener(("click"), (e) => {
+                const myNextElement = e.currentTarget.nextElementSibling;
+                let counter = parseInt(myNextElement.textContent).toString();
+                --counter;
+
+                if (counter < 1) counter = 1;
+
+                myNextElement.innerHTML = counter.toString();
+            });
+        });
     }
 
     return {
