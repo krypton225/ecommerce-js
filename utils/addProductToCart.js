@@ -40,14 +40,15 @@ const CartProduct = (function () {
 
         mainCart.innerHTML +=
             `<div id="product-94" class="product-card-home w-full px-3 relative flex justify-between items-center">
+                <span class="block rounded-lg px-4 py-1 absolute top-[-26.4%] left-0 bg-slate-600 text-white z-50">Total: $${productPrice}</span>
+
                 <img src="${pathPic}" id="product-img--cart-${id}" class="w-[24%] object-cover"
                 alt="${picAltText}" width="20%" height="20%" loading="lazy" draggable="false">
 
                 <h3 id="product-title-333333333" class="text-lg text-center">${picAltText}</h3>
 
                 <div class="flex flex-col items-center">
-                    <span id="product-price-11111111"
-                        class="inline-block rounded-lg py-1 px-3 bg-slate-600 text-white z-50">
+                    <span id="product-price-11111111" class="inline-block rounded-lg py-1 px-3 bg-slate-600 text-white z-50">
                         Price: $${productPrice}
                     </span>
 
@@ -65,7 +66,7 @@ const CartProduct = (function () {
     const increaseCounterOfProduct = function () {
         document.querySelectorAll(".increase-cart-item").forEach((el) => {
             el.addEventListener(("click"), (e) => {
-                const myPrevElement = e.currentTarget.previousElementSibling;
+                const myPrevElement = getSibling(e.currentTarget, "prev");
                 let counter = parseInt(myPrevElement.textContent).toString();
                 ++counter;
                 myPrevElement.innerHTML = counter.toString();
@@ -76,7 +77,7 @@ const CartProduct = (function () {
     const decreaseCounterOfProduct = function () {
         document.querySelectorAll(".decrease-cart-item").forEach((el) => {
             el.addEventListener(("click"), (e) => {
-                const myNextElement = e.currentTarget.nextElementSibling;
+                const myNextElement = getSibling(e.currentTarget, "next");
                 let counter = parseInt(myNextElement.textContent).toString();
                 --counter;
 
@@ -85,6 +86,14 @@ const CartProduct = (function () {
                 myNextElement.innerHTML = counter.toString();
             });
         });
+    }
+
+    function getSibling(element = null ?? "", placeELement = "") {
+        if (placeELement === "prev") {
+            return element.previousElementSibling;
+        } else if (placeELement === "next") {
+            return element.nextElementSibling;
+        }
     }
 
     return {
