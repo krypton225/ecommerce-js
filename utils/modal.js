@@ -1,5 +1,3 @@
-import AllProducts from "../data/products.js";
-
 import ProductOperations from "./productOperations.js";
 import Scroll from "./removeScrolling.js";
 
@@ -29,16 +27,8 @@ const Modal = (function () {
      */
     function getProductContainerID(buttonClicked = undefined ?? "") {
         const parentELementID = ProductOperations.getProductID(buttonClicked);
-        const productObject = getProductObject(parseInt(parentELementID));
+        const productObject = ProductOperations.getProductObject(parseInt(parentELementID));
         setModalBody(productObject[0]);
-    }
-
-    /**
-     * @description filter the product array to get the product with specified product ID.
-     * @param  {number} productID=0 - product ID which will be filtered and get from the main product array.
-     */
-    function getProductObject(productID = 0) {
-        return AllProducts.filter((product) => productID === product.id);
     }
 
     /**

@@ -21,9 +21,9 @@ const renderProducts = (function () {
 
                         <p id="product-description-${id}" class="text-sm text-gray-500">${productDescription}</p>
 
-                        <div class="px-2 flex justify-between items-center">
-                            <button class="btn-custom add-cart" id="add-product-${id}-cart">add to cart</button>
-                            <button class="btn-custom show" id="show-product-${id}">show</button>
+                        <div class="w-full mx-auto px-2 flex justify-between items-center">
+                            <button class="btn-custom add-cart transition-all" id="add-product-${id}-cart">add to cart</button>
+                            <button class="btn-custom show transition-all" id="show-product-${id}">show</button>
                         </div>
                     </div>`;
             });

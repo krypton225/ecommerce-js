@@ -1,4 +1,4 @@
-import Scroll from "./removeScrolling.js";
+import AllProducts from "../data/products.js";
 
 const ProductOperations = (function () {
     /**
@@ -25,10 +25,19 @@ const ProductOperations = (function () {
         return buttonClicked.parentNode.parentNode.id.split("-")[1];
     }
 
+    /**
+     * @description filter the product array to get the product with specified product ID.
+     * @param  {number} productID=0 - product ID which will be filtered and get from the main product array.
+     */
+    function getProductObject(productID = 0) {
+        return AllProducts.filter((product) => productID === product.id);
+    }
+
     return {
         getShowButtons: getAllShowButtonsProducts,
         getCartButtons: getAllCartButtonsProducts,
-        getProductID: getProductIDFromButtonClicked
+        getProductID: getProductIDFromButtonClicked,
+        getProductObject
     }
 })();
 
