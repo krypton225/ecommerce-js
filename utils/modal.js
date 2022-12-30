@@ -6,12 +6,8 @@ import Scroll from "./removeScrolling.js";
 const Modal = (function () {
     const myModal = document.getElementById("my-modal");
 
-    /**
-     * @description get all buttons Show which into product cards.
-     * @returns {NodeList} - returns list of nodes of buttons.
-    */
-    function getAllButtonsProducts() {
-        return document.querySelectorAll(`.product-card-home .show`);
+    const main = function () {
+        getButtonClicked();
     }
 
     /**
@@ -32,7 +28,7 @@ const Modal = (function () {
      * @param  {HTMLElement} buttonClicked= undefined ?? "" - get the button which is actually clicked.
      */
     function getProductContainerID(buttonClicked = undefined ?? "") {
-        const parentELementID = buttonClicked.parentNode.parentNode.id.split("-")[1];
+        const parentELementID = ProductOperations.getProductID(buttonClicked);
         const productObject = getProductObject(parseInt(parentELementID));
         setModalBody(productObject[0]);
     }
@@ -94,7 +90,7 @@ const Modal = (function () {
     }
 
     return {
-        getButtonClicked,
+        main,
         closeModal
     }
 })();

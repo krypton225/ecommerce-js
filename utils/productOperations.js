@@ -17,9 +17,18 @@ const ProductOperations = (function () {
         return document.querySelectorAll(`.product-card-home .add-cart`);
     }
 
+    /**
+     * @description get product ID which regards to the clicked button and send to setModalBody function.
+     * @param  {} buttonClicked=null??""
+     */
+    function getProductIDFromButtonClicked(buttonClicked = null ?? "") {
+        return buttonClicked.parentNode.parentNode.id.split("-")[1];
+    }
+
     return {
         getShowButtons: getAllShowButtonsProducts,
         getCartButtons: getAllCartButtonsProducts,
+        getProductID: getProductIDFromButtonClicked
     }
 })();
 
