@@ -54,7 +54,7 @@
                     class="w-full md:w-[25rem] h-screen px-3 py-16 lg:py-24 border-0 md:border-l-[1px] md:border-slate-700 absolute top-0 -right-[50rem] bg-gradient-to-tl from-slate-800 via-slate-850 to-gray-900 text-center transition-all duration-[0.8s]">
 
                     <div class="w-full flex justify-between items-center">
-                        <h3 class="inline-block text-white text-xl capitalize">all products in cart</h3>
+                        <h3 class="inline-block text-white text-xl capitalize" id="total-price">No added items!</h3>
 
                         <div id="show-cart-close"
                             class="w-8 h-8 p-1 rounded-full flex justify-center items-center bg-slate-600 cursor-pointer">
@@ -65,11 +65,10 @@
                         </div>
                     </div>
 
-                    <!-- * =================================================================== -->
-                    <div class="w-full grid grid-cols-1 gap-y-16 mt-12" id="cart-show-products"></div>
+                    <div class="w-full grid grid-cols-1 gap-y-12 mt-12" id="cart-show-products">
+                        <div class="absolute bottom-0 bg-white text-black text-center final-result"></div>
+                    </div>
                 </div>
-                <!-- * =================================================================== -->
-            </div>
             </div>
         </nav>
 
