@@ -1,7 +1,17 @@
 import Scroll from "./removeScrolling.js";
 
-const cartOperations = (function () {
+const CartOperations = (function () {
     const mainElement = document.getElementById("show-cart");
+
+    /**
+     * @description entry point of the module.
+     * @param {string} elementForOpen
+     * @param {string} elementForClose
+     */
+    const main = function (elementForOpen = "", elementForClose = "") {
+        openShowCart(elementForOpen);
+        closeShowCart(elementForClose);
+    }
 
     /**
      * @description Check if param is true, then open cart, else close it.
@@ -37,9 +47,8 @@ const cartOperations = (function () {
     }
 
     return {
-        open: openShowCart,
-        close: closeShowCart
+        main
     }
 })();
 
-export default cartOperations;
+export default CartOperations;

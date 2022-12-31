@@ -9,8 +9,7 @@ import CartProduct from "../utils/addProductToCart.js";
 
 renderProducts("parent-products", AllProducts);
 
-CartOperations.open("show-cart-open");
-CartOperations.close("show-cart-close");
+CartOperations.main("show-cart-open", "show-cart-close")
 
 Modal.main();
 
