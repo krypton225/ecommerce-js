@@ -86,7 +86,7 @@ const CartProduct = (function () {
                 </div>
             </div>`;
 
-        console.log(`Total price of all products is: ${calculateTotalPrice(productPrice)}`)
+        calculateTotalPrice(productPrice);
 
         increaseCounterOfProduct();
         decreaseCounterOfProduct();
@@ -129,7 +129,6 @@ const CartProduct = (function () {
 
                 // * Add price of product to the total.
                 countFinalResult += parseInt(returnedObj[0].productPrice);
-                console.log(`Final Result: ${countFinalResult}`)
                 setTotalPriceInHTML();
 
                 // * Render the current counter into HTML.
@@ -161,7 +160,6 @@ const CartProduct = (function () {
 
                 // * Remove price of product to the total.
                 countFinalResult -= parseInt(returnedObj[0].productPrice);
-                console.log(`Final Result: ${countFinalResult}`)
                 setTotalPriceInHTML();
 
                 // * Render the current counter into HTML.
