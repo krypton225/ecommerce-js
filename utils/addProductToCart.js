@@ -99,6 +99,7 @@ const CartProduct = (function () {
     /**
      * @description To get the current ID of the product.
      * @param  {HTMLElement} targetElement
+     * @returns the product which matches.
      */
     function getIdProductInCart(targetElement) {
         const myParentElementID = parseInt(targetElement.parentNode.parentNode.parentNode.id.split("-cart-")[1]);
@@ -113,6 +114,7 @@ const CartProduct = (function () {
             el.addEventListener(("click"), (e) => {
                 e.stopPropagation();
 
+                // * Disable decrease button by default.
                 e.currentTarget.previousElementSibling.previousElementSibling.disabled = false;
 
                 const returnedObj = getIdProductInCart(e.currentTarget);
@@ -121,10 +123,12 @@ const CartProduct = (function () {
                 let counter = parseInt(myPrevElement.textContent).toString();
                 ++counter;
 
+                // * Add price of product to the total.
                 countFinalResult += parseInt(returnedObj[0].productPrice);
                 console.log(`Final Result: ${countFinalResult}`)
                 setTotalPriceInHTML();
 
+                // * Render the current counter into HTML.
                 myPrevElement.innerHTML = counter.toString();
             });
         });
@@ -151,10 +155,12 @@ const CartProduct = (function () {
                     e.currentTarget.disabled = false;
                 }
 
+                // * Remove price of product to the total.
                 countFinalResult -= parseInt(returnedObj[0].productPrice);
                 console.log(`Final Result: ${countFinalResult}`)
                 setTotalPriceInHTML();
 
+                // * Render the current counter into HTML.
                 myNextElement.innerHTML = counter.toString();
             });
         });
