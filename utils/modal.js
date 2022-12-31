@@ -4,6 +4,9 @@ import Scroll from "./removeScrolling.js";
 const Modal = (function () {
     const myModal = document.getElementById("my-modal");
 
+    /**
+     * @description entry point of the module.
+     */
     const main = function () {
         getButtonClicked();
     }
@@ -74,7 +77,6 @@ const Modal = (function () {
         document.querySelector(".close-modal").addEventListener(("click"), () => {
             myModal.classList.remove("top-[28rem]", "opacity-1", "visible");
             myModal.classList.add("top-[26rem]", "opacity-0", "invisible");
-            // document.body.classList.remove("overflow-y-hidden");
             Scroll.addTwoAxis("body");
         });
     }
