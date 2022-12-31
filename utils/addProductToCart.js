@@ -64,8 +64,10 @@ const CartProduct = (function () {
 
         mainCart.innerHTML +=
             `<div id="product-cart-${id}" class="product-card-home w-full px-3 relative flex justify-between items-center cart-product-container">
-                <img src="${pathPic}" id="product-img-cart-${id}" class="w-[24%] object-cover"
-                alt="${picAltText}" width="20%" height="20%" loading="lazy" draggable="false">
+                <div class="w-[40%] overflow-hidden">
+                    <img src="${pathPic}" id="product-img-cart-${id}" class="w-full object-cover"
+                    alt="${picAltText}" width="20%" height="20%" loading="lazy" draggable="false">
+                </div>
 
                 <h3 id="product-title-cart-${id}" class="text-lg text-center">${picAltText}</h3>
 
@@ -74,11 +76,13 @@ const CartProduct = (function () {
                         Price: $${productPrice}
                     </span>
 
-                    <div class="w-full px-0 mt-5 flex justify-between items-center product-operations">
+                    <div class="w-full px-0 mt-3 flex justify-between items-center product-operations">
                         <button class="btn-custom-2 decrease-cart-item-btn" disabled>-</button>
                         <span class="inline-block mx-[10%] text-xl font-semibold product-counting">1</span>
                         <button class="btn-custom-2 increase-cart-item-btn">+</button>
                     </div>
+
+                    <button class="btn-custom-2 w-full mt-3 text-sm remove-cart-item">remove</button>
                 </div>
             </div>`;
 
