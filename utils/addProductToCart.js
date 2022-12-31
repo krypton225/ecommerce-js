@@ -8,10 +8,16 @@ const CartProduct = (function () {
 
     const productsInCart = [];
 
+    /**
+     * @description entry point of the module.
+     */
     const main = function () {
         getProductClicked();
     }
 
+    /**
+     * @description get the product which is clicked from home page.
+     */
     function getProductClicked() {
         ProductOperations.getCartButtons().forEach((button) => {
             button.addEventListener(("click"), (e) => {
@@ -24,21 +30,35 @@ const CartProduct = (function () {
                 cartIcon.classList.add("w-1", "h-1", "p-3", "rounded-full", "flex", "justify-center", "items-center",
                     "absolute", "-top-3", "left-0", "bg-slate-700", "text-white", "text-base");
 
-                setTotalPrice();
+                setTotalPriceInHTML();
             });
         });
     }
 
+    /**
+     * @description get the product object after click button & add to cart container.
+     * Push the product in productsInCart array, which acts as container for all products in cart.
+     * Set length of this array (productsInCart) as notification for the icon cart.
+     * Render OR Add this product into HTML div of the cart.
+     * @param  {Object} product
+     */
     function addProductIntoCart(product) {
         productsInCart.push(product[0]);
         setLengthAtIconCart();
         renderProductsAtCart(product[0]);
     }
 
+    /**
+     * @description set the length of the productsInCart array into cart icon.
+     */
     function setLengthAtIconCart() {
         cartIcon.innerHTML = productsInCart.length;
     }
 
+    /**
+     * @description Render the selected product in the div of cart & Call (increase & decrease) functions of each product.
+     * @param  {Object} product
+     */
     function renderProductsAtCart(product) {
         const { id, pathPic, picAltText, productPrice } = product;
 
@@ -68,15 +88,26 @@ const CartProduct = (function () {
         decreaseCounterOfProduct();
     }
 
+    /**
+     * @param  {number} price - to add to total price.
+     * @returns total price after added the param.
+     */
     function calculateTotalPrice(price) {
         return countFinalResult += price;
     }
 
+    /**
+     * @description To get the current ID of the product.
+     * @param  {HTMLElement} targetElement
+     */
     function getIdProductInCart(targetElement) {
         const myParentElementID = parseInt(targetElement.parentNode.parentNode.parentNode.id.split("-cart-")[1]);
         return productsInCart.filter((el) => el.id === myParentElementID);
     }
 
+    /**
+     * @description What will happen if increase button of each product is clicked.
+     */
     const increaseCounterOfProduct = function () {
         document.querySelectorAll(".increase-cart-item-btn").forEach((el) => {
             el.addEventListener(("click"), (e) => {
@@ -92,13 +123,16 @@ const CartProduct = (function () {
 
                 countFinalResult += parseInt(returnedObj[0].productPrice);
                 console.log(`Final Result: ${countFinalResult}`)
-                setTotalPrice();
+                setTotalPriceInHTML();
 
                 myPrevElement.innerHTML = counter.toString();
             });
         });
     }
 
+    /**
+     * @description What will happen if decrease button of each product is clicked.
+     */
     const decreaseCounterOfProduct = function () {
         document.querySelectorAll(".decrease-cart-item-btn").forEach((el) => {
             el.addEventListener(("click"), (e) => {
@@ -119,17 +153,24 @@ const CartProduct = (function () {
 
                 countFinalResult -= parseInt(returnedObj[0].productPrice);
                 console.log(`Final Result: ${countFinalResult}`)
-                setTotalPrice();
+                setTotalPriceInHTML();
 
                 myNextElement.innerHTML = counter.toString();
             });
         });
     }
 
-    function setTotalPrice() {
+    /**
+     * @description Setting total price into HTML.
+     */
+    function setTotalPriceInHTML() {
         document.getElementById("total-price").innerHTML = `Total price: ${countFinalResult}`;
     }
 
+    /**
+     * @param  {HTMLElement} element=null??"" element to get its siblings
+     * @param  {string} placeELement="" where the element you want? (previous or next) of current element.
+     */
     function getSibling(element = null ?? "", placeELement = "") {
         if (placeELement === "prev") {
             return element.previousElementSibling;
