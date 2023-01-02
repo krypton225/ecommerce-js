@@ -13,6 +13,7 @@ const CartProduct = (function () {
      */
     const main = function () {
         getProductClicked();
+        removeProductFromCartArray();
     }
 
     /**
@@ -185,6 +186,32 @@ const CartProduct = (function () {
         } else if (placeELement === "next") {
             return element.nextElementSibling;
         }
+    }
+
+    /**
+     * @description Getting all buttons for remove product from the cart.
+     */
+    function getAllRemoveButtons() {
+        return document.querySelectorAll(".remove-cart-item");
+    }
+
+    /**
+     * @description Removing the single product form HTML.
+     */
+    function removeProductFromHTML(productDiv) {
+        productDiv.remove();
+    }
+
+    /**
+     * @description Removing the product form product cart array.
+     */
+    function removeProductFromCartArray() {
+        getAllRemoveButtons().forEach((button) => {
+            button.addEventListener(("click"), (e) => {
+                const currentProductID = parseInt(e.currentTarget.parentNode.parentNode.id.split("-cart-")[1]);
+                removeProductFromHTML(e.currentTarget.parentNode.parentNode);
+            });
+        });
     }
 
     return {

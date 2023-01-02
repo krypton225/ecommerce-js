@@ -1,5 +1,7 @@
 import Scroll from "./removeScrolling.js";
 
+import AddProductToCart from "./addProductToCart.js";
+
 const CartOperations = (function () {
     const mainElement = document.getElementById("show-cart");
 
@@ -31,6 +33,7 @@ const CartOperations = (function () {
             showOrNot(true);
             Scroll.removeTwoAxis("body");
             Scroll.addYAxisTo("show-cart");
+            AddProductToCart.main();
         });
     }
 
