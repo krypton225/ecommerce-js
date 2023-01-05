@@ -722,8 +722,8 @@ video {
   left: -0.25rem;
 }
 
-.top-\[26rem\] {
-  top: 26rem;
+.top-\[20rem\] {
+  top: 20rem;
 }
 
 .left-1\/2 {
@@ -770,8 +770,52 @@ video {
   right: 1.5rem;
 }
 
+.top-\[26rem\] {
+  top: 26rem;
+}
+
 .top-\[28rem\] {
   top: 28rem;
+}
+
+.top-\[12rem\] {
+  top: 12rem;
+}
+
+.top-\[17rem\] {
+  top: 17rem;
+}
+
+.top-1\/2 {
+  top: 50%;
+}
+
+.top-\[18\.3rem\] {
+  top: 18.3rem;
+}
+
+.top-\[24\.3rem\] {
+  top: 24.3rem;
+}
+
+.top-\[23rem\] {
+  top: 23rem;
+}
+
+.top-\[24rem\] {
+  top: 24rem;
+}
+
+.-top-8 {
+  top: -2rem;
+}
+
+.-top-6 {
+  top: -1.5rem;
+}
+
+.right-2 {
+  right: 0.5rem;
 }
 
 .isolate {
@@ -792,6 +836,10 @@ video {
 
 .z-\[9999\] {
   z-index: 9999;
+}
+
+.z-\[9999999999999999\] {
+  z-index: 9999999999999999;
 }
 
 .float-right {
@@ -985,6 +1033,14 @@ video {
   height: 2.25rem;
 }
 
+.h-\[5rem\] {
+  height: 5rem;
+}
+
+.h-\[25rem\] {
+  height: 25rem;
+}
+
 .w-\[25rem\] {
   width: 25rem;
 }
@@ -1023,6 +1079,34 @@ video {
 
 .w-9 {
   width: 2.25rem;
+}
+
+.w-\[45\%\] {
+  width: 45%;
+}
+
+.w-\[22rem\] {
+  width: 22rem;
+}
+
+.w-\[50\%\] {
+  width: 50%;
+}
+
+.w-\[23rem\] {
+  width: 23rem;
+}
+
+.w-\[99\%\] {
+  width: 99%;
+}
+
+.w-\[90\%\] {
+  width: 90%;
+}
+
+.w-\[94\%\] {
+  width: 94%;
 }
 
 .flex-shrink {
@@ -2155,6 +2239,34 @@ video {
   padding-right: 0.25rem;
 }
 
+.py-10 {
+  padding-top: 2.5rem;
+  padding-bottom: 2.5rem;
+}
+
+.py-5 {
+  padding-top: 1.25rem;
+  padding-bottom: 1.25rem;
+}
+
+.py-8 {
+  padding-top: 2rem;
+  padding-bottom: 2rem;
+}
+
+.py-7 {
+  padding-top: 1.75rem;
+  padding-bottom: 1.75rem;
+}
+
+.pt-10 {
+  padding-top: 2.5rem;
+}
+
+.pb-5 {
+  padding-bottom: 1.25rem;
+}
+
 .text-left {
   text-align: left;
 }
@@ -2792,6 +2904,10 @@ body::-webkit-scrollbar-track-piece,
     width: 25rem;
   }
 
+  .md\:w-\[28rem\] {
+    width: 28rem;
+  }
+
   .md\:grid-cols-2 {
     grid-template-columns: repeat(2, minmax(0, 1fr));
   }
@@ -2813,6 +2929,10 @@ body::-webkit-scrollbar-track-piece,
 @media (min-width: 1024px) {
   .lg\:w-\[35rem\] {
     width: 35rem;
+  }
+
+  .lg\:w-\[30rem\] {
+    width: 30rem;
   }
 
   .lg\:grid-cols-3 {

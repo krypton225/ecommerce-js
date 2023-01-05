@@ -43,7 +43,7 @@ const Modal = (function () {
 
         myModal.innerHTML = `
                 <div id="product-modal-${id}" class="product-card-modal relative">
-                    <div class="close-modal w-7 h-7 p-1 rounded-full absolute -top-11 right-1 flex justify-center items-center 
+                    <div class="close-modal w-7 h-7 p-1 rounded-full absolute -top-6 right-2 flex justify-center items-center 
                     bg-slate-600 text-white cursor-pointer">
                         <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5"
                             stroke="white" class="w-6 h-6">
@@ -56,16 +56,16 @@ const Modal = (function () {
                         $${productPrice}
                     </span>
 
-                    <img src="${pathPic}" id="product-modal-img-${id}" class="w-[60%] mx-auto object-cover"
-                        alt="${picAltText}" width="60%" height="60%" loading="lazy" draggable="false">
+                    <img src="${pathPic}" id="product-modal-img-${id}" class="w-[50%] mx-auto object-cover"
+                        alt="${picAltText}" width="50%" height="50%" loading="lazy" draggable="false">
 
                     <h2 id="product-modal-title-${id}" class="w-full relative mt-3 text-center text-[1.7rem]">${picAltText}</h2>
 
                     <p id="product-modal-description-5421" class="px-1 my-4 text-[1rem] text-gray-500">${productFullDescription}</p>
             </div>`;
 
-        myModal.classList.remove("top-[26rem]", "opacity-0", "invisible");
-        myModal.classList.add("top-[28rem]", "opacity-1", "visible");
+        myModal.classList.remove("top-[23rem]", "opacity-0", "invisible");
+        myModal.classList.add("top-[24rem]", "opacity-1", "visible");
 
         closeModal();
     }
@@ -75,8 +75,8 @@ const Modal = (function () {
      */
     function closeModal() {
         document.querySelector(".close-modal").addEventListener(("click"), () => {
-            myModal.classList.remove("top-[28rem]", "opacity-1", "visible");
-            myModal.classList.add("top-[26rem]", "opacity-0", "invisible");
+            myModal.classList.remove("top-[24rem]", "opacity-1", "visible");
+            myModal.classList.add("top-[23rem]", "opacity-0", "invisible");
             Scroll.addTwoAxis("body");
         });
     }
