@@ -1,3 +1,4 @@
+import Overlay from "./Overlay.js";
 import ProductOperations from "./productOperations.js";
 import Scroll from "./removeScrolling.js";
 
@@ -41,6 +42,8 @@ const Modal = (function () {
     const setModalBody = function (product) {
         const { id, pathPic, picAltText, productPrice, productFullDescription } = product;
 
+        Overlay.insert();
+
         myModal.innerHTML = `
                 <div id="product-modal-${id}" class="product-card-modal relative">
                     <div class="close-modal w-7 h-7 p-1 rounded-full absolute -top-6 right-2 flex justify-center items-center 
@@ -75,6 +78,7 @@ const Modal = (function () {
      */
     function closeModal() {
         document.querySelector(".close-modal").addEventListener(("click"), () => {
+            Overlay.remove();
             myModal.classList.remove("top-[24rem]", "opacity-1", "visible");
             myModal.classList.add("top-[23rem]", "opacity-0", "invisible");
             Scroll.addTwoAxis("body");
