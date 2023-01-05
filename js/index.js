@@ -5,7 +5,12 @@ import renderProducts from "../data/renderProducts.js";
 import CartOperations from "../utils/show-cart-operations.js";
 
 import Modal from "../utils/modal.js";
+
 import CartProduct from "../utils/addProductToCart.js";
+
+import Loader from "../utils/Loader.js";
+
+Loader.run();
 
 renderProducts("parent-products", AllProducts);
 
