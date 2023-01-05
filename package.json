@@ -6,7 +6,7 @@
   "main": "js/index.js",
   "typings": "js/index.js",
   "scripts": {
-    "start": "live-server & npm run tw-watch",
+    "start": "live-server & tw-watch",
     "server": "live-server",
     "tw-watch": "npx tailwindcss -i ./css/input.css -o ./dist/output.css --watch"
   },

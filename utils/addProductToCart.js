@@ -6,14 +6,14 @@ const CartProduct = (function () {
 
     let countFinalResult = 0;
 
-    const productsInCart = [];
+    let productsInCart = [];
 
     /**
      * @description entry point of the module.
      */
     const main = function () {
         getProductClicked();
-        removeProductFromCartArray();
+        removeMain();
     }
 
     /**
@@ -22,6 +22,7 @@ const CartProduct = (function () {
     function getProductClicked() {
         ProductOperations.getCartButtons().forEach((button) => {
             button.addEventListener(("click"), (e) => {
+                e.stopPropagation();
                 const productID = ProductOperations.getProductID(e.currentTarget);
                 addProductIntoCart(ProductOperations.getProductObject(parseInt(productID)));
 
@@ -32,6 +33,10 @@ const CartProduct = (function () {
                     "absolute", "-top-3", "left-0", "bg-slate-700", "text-white", "text-base");
 
                 setTotalPriceInHTML();
+
+                const oldClone = e.currentTarget;
+                const newClone = oldClone.cloneNode(true);
+                oldClone.parentNode.replaceChild(newClone, oldClone);
             });
         });
     }
@@ -188,6 +193,33 @@ const CartProduct = (function () {
         }
     }
 
+    function removeMain() {
+        removeProductFromCartArray();
+    }
+
+    /**
+     * @description Removing the product form product cart array.
+     */
+    function removeProductFromCartArray() {
+        getAllRemoveButtons().forEach((button) => {
+            button.addEventListener(("click"), (e) => {
+                const parentDiv = e.currentTarget.parentNode.parentNode;
+                const currentProductID = parseInt(parentDiv.id.split("-cart-")[1]);
+
+                removeProductFromHTML(parentDiv);
+
+                for (let i = 0; i < productsInCart.length; i++) {
+                    if (productsInCart[i].id === currentProductID) {
+                        productsInCart.splice(i, 1);
+                        break;
+                    }
+                }
+
+                setLengthAtIconCart();
+            });
+        });
+    }
+
     /**
      * @description Getting all buttons for remove product from the cart.
      */
@@ -200,18 +232,6 @@ const CartProduct = (function () {
      */
     function removeProductFromHTML(productDiv) {
         productDiv.remove();
-    }
-
-    /**
-     * @description Removing the product form product cart array.
-     */
-    function removeProductFromCartArray() {
-        getAllRemoveButtons().forEach((button) => {
-            button.addEventListener(("click"), (e) => {
-                const currentProductID = parseInt(e.currentTarget.parentNode.parentNode.id.split("-cart-")[1]);
-                removeProductFromHTML(e.currentTarget.parentNode.parentNode);
-            });
-        });
     }
 
     return {

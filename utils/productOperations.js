@@ -19,7 +19,7 @@ const ProductOperations = (function () {
 
     /**
      * @description get product ID which regards to the clicked button and send to setModalBody function.
-     * @param  {} buttonClicked=null??""
+     * @param  {HTMLButtonElement} buttonClicked=null??""
      */
     function getProductIDFromButtonClicked(buttonClicked = null ?? "") {
         return buttonClicked.parentNode.parentNode.id.split("-")[1];
