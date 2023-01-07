@@ -8,6 +8,7 @@
   "scripts": {
     "start": "live-server & tw-watch",
     "server": "live-server",
+    "out-wpk": "webpack --mode production",
     "tw-watch": "npx tailwindcss -i ./css/input.css -o ./dist/output.css --watch"
   },
   "keywords": [
@@ -19,6 +20,8 @@
   "license": "MIT",
   "devDependencies": {
     "@types/aos": "^3.0.4",
-    "tailwindcss": "^3.2.4"
+    "tailwindcss": "^3.2.4",
+    "webpack": "^5.75.0",
+    "webpack-cli": "^5.0.1"
   }
 }
